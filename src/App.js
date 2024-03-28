@@ -9,12 +9,12 @@ const App = () => {
     if (!userInput) return;
 
     try {
-      const response = await fetch('http://localhost:3000/chat', {
+      const response = await fetch('https://backend-pearl-one.vercel.app/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userInput }),
       });
-
+      console.log(JSON.stringify({ userInput }));
       const responseJson = await response.json();
       console.log(responseJson);
       setChatHistory([...chatHistory, { you: userInput }, { kld7: responseJson.response }]);
